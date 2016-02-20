@@ -1,0 +1,21 @@
+ source 'https://github.com/CocoaPods/Specs.git'
+ use_frameworks!
+ platform :ios, '8.3'
+
+link_with 'universal-file-transfer'
+
+#Pods linked to universal-file-transfer
+target 'universal-file-transfer' do
+ 	use_frameworks!
+ 	pod 'EmitterKit'
+    pod "GCDWebServer/WebUploader", "~> 3.0"
+end
+
+#Pods linked to universal-file-transferTests app
+# target 'universal-file-transferTests' do
+#  	use_frameworks!
+#  	pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
+#  	pod 'Typhoon'
+#  	pod 'EmitterKit'
+# end
+# use_frameworks!

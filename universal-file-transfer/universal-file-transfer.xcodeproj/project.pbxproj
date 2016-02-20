@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F912A181C7861B000BB31FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F912A171C7861B000BB31FB /* AppDelegate.swift */; };
+		6F912A1A1C7861B000BB31FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F912A191C7861B000BB31FB /* ViewController.swift */; };
+		6F912A1D1C7861B000BB31FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F912A1B1C7861B000BB31FB /* Main.storyboard */; };
+		6F912A1F1C7861B000BB31FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F912A1E1C7861B000BB31FB /* Assets.xcassets */; };
+		6F912A221C7861B000BB31FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F912A201C7861B000BB31FB /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6F912A141C7861B000BB31FB /* universal-file-transfer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "universal-file-transfer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F912A171C7861B000BB31FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6F912A191C7861B000BB31FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6F912A1C1C7861B000BB31FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6F912A1E1C7861B000BB31FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F912A211C7861B000BB31FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6F912A231C7861B000BB31FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F912A111C7861B000BB31FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6F912A0B1C7861B000BB31FB = {
+			isa = PBXGroup;
+			children = (
+				6F912A161C7861B000BB31FB /* universal-file-transfer */,
+				6F912A151C7861B000BB31FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6F912A151C7861B000BB31FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F912A141C7861B000BB31FB /* universal-file-transfer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F912A161C7861B000BB31FB /* universal-file-transfer */ = {
+			isa = PBXGroup;
+			children = (
+				6F912A171C7861B000BB31FB /* AppDelegate.swift */,
+				6F912A191C7861B000BB31FB /* ViewController.swift */,
+				6F912A1B1C7861B000BB31FB /* Main.storyboard */,
+				6F912A1E1C7861B000BB31FB /* Assets.xcassets */,
+				6F912A201C7861B000BB31FB /* LaunchScreen.storyboard */,
+				6F912A231C7861B000BB31FB /* Info.plist */,
+			);
+			path = "universal-file-transfer";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6F912A131C7861B000BB31FB /* universal-file-transfer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F912A261C7861B000BB31FB /* Build configuration list for PBXNativeTarget "universal-file-transfer" */;
+			buildPhases = (
+				6F912A101C7861B000BB31FB /* Sources */,
+				6F912A111C7861B000BB31FB /* Frameworks */,
+				6F912A121C7861B000BB31FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "universal-file-transfer";
+			productName = "universal-file-transfer";
+			productReference = 6F912A141C7861B000BB31FB /* universal-file-transfer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F912A0C1C7861B000BB31FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Mobile Mob";
+				TargetAttributes = {
+					6F912A131C7861B000BB31FB = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 6F912A0F1C7861B000BB31FB /* Build configuration list for PBXProject "universal-file-transfer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6F912A0B1C7861B000BB31FB;
+			productRefGroup = 6F912A151C7861B000BB31FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F912A131C7861B000BB31FB /* universal-file-transfer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F912A121C7861B000BB31FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F912A221C7861B000BB31FB /* LaunchScreen.storyboard in Resources */,
+				6F912A1F1C7861B000BB31FB /* Assets.xcassets in Resources */,
+				6F912A1D1C7861B000BB31FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F912A101C7861B000BB31FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F912A1A1C7861B000BB31FB /* ViewController.swift in Sources */,
+				6F912A181C7861B000BB31FB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6F912A1B1C7861B000BB31FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F912A1C1C7861B000BB31FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6F912A201C7861B000BB31FB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F912A211C7861B000BB31FB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6F912A241C7861B000BB31FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F912A251C7861B000BB31FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6F912A271C7861B000BB31FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "universal-file-transfer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobile-mob.universal-file-transfer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6F912A281C7861B000BB31FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "universal-file-transfer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobile-mob.universal-file-transfer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F912A0F1C7861B000BB31FB /* Build configuration list for PBXProject "universal-file-transfer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F912A241C7861B000BB31FB /* Debug */,
+				6F912A251C7861B000BB31FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F912A261C7861B000BB31FB /* Build configuration list for PBXNativeTarget "universal-file-transfer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F912A271C7861B000BB31FB /* Debug */,
+				6F912A281C7861B000BB31FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F912A0C1C7861B000BB31FB /* Project object */;
+}
