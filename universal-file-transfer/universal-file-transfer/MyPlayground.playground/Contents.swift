@@ -10,4 +10,11 @@ let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
 // let fullNameArr = fullName.characters.split{" "}.map(String.init)
 
 fullNameArr[0] // First
-fullNameArr[1] // Last
+//fullNameArr[1] // Last
+
+var a = [Int:Int]()
+a[1] = 10
+if let value = a[2] {
+    print(1)
+}
+a.keys.contains()

@@ -19,4 +19,15 @@ public struct GeneralHelper {
     public func getServer() -> ServerController {
         return getAppDelegate().server
     }
+    
+    public enum KeyError: ErrorType {
+        case NoKey
+    }
+    
+    public func getData(dict: [String:UIImage], key: String) throws -> UIImage {
+        guard let image = dict[key] else {
+            throw KeyError.NoKey
+        }
+        return image
+    }
 }

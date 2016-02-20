@@ -35,8 +35,10 @@ public class ServerController {
 //        self.runServer()
     }
     
-    private func getImageAsNSData(index: String) -> NSData {
-        return UIImagePNGRepresentation(self.imageDictionary[index]!)!
+    private func getImageAsNSData(index: String) throws -> NSData {
+        let data = try GeneralHelper().getData(self.imageDictionary, key: index)
+
+        return UIImagePNGRepresentation(data)!
     }
     
     // ex). removeSlashFromPath('/123') => '123'
@@ -51,13 +53,21 @@ public class ServerController {
     
     private func respondToRequest(request: GCDWebServerRequest, completionBlock: GCDWebServerCompletionBlock) {
         let fileKey = removeSlashFromPath(request.path)
+        let response: GCDWebServerResponse?
+        let imageData: NSData?
+        do {
+            imageData = try getImageAsNSData(fileKey)
+            response = GCDWebServerDataResponse(data: imageData, contentType: "png")
+        } catch  {
+            response = GCDWebServerErrorResponse(HTML: "The index doesn't exist")
+//            GCDWebServerErrorResponse.init
+//            response = GCDWebServerErrorResponse.init(statusCode: 404)
+            response?.statusCode = 404
+        }
         
-        
-        let imageData = getImageAsNSData(fileKey)
-        let response = GCDWebServerDataResponse(data: imageData, contentType: "png")
 //        let filePath = NSBundle.mainBundle().pathForResource("cat", ofType: "jpg")
 //        let response = GCDWebServerFileResponse(file: filePath)
-        print(response.description)
+//        print(response.description)
         print("path: ", request.path)
         print("method: ",request.method)
         print("URL: ", request.URL)
