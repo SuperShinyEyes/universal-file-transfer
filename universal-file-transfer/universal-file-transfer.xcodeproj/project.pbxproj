@@ -33,6 +33,7 @@
 		6F912A2C1C786C6B00BB31FB /* software_development_explained_with_cars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = software_development_explained_with_cars.jpg; path = "../../../../../../Volumes/YOUNG HDD/Downloads/software_development_explained_with_cars.jpg"; sourceTree = "<group>"; };
 		6F912A2E1C78753B00BB31FB /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		6F912A301C7878A200BB31FB /* GeneralHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
+		6F912A321C78AF1300BB31FB /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		C681EC64AD5C49919E7F3144 /* Pods_universal_file_transfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_universal_file_transfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +88,7 @@
 				6F912A231C7861B000BB31FB /* Info.plist */,
 				6F912A2E1C78753B00BB31FB /* ServerController.swift */,
 				6F912A301C7878A200BB31FB /* GeneralHelper.swift */,
+				6F912A321C78AF1300BB31FB /* MyPlayground.playground */,
 			);
 			path = "universal-file-transfer";
 			sourceTree = "<group>";

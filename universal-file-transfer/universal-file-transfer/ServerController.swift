@@ -12,7 +12,7 @@ import GCDWebServer
 public class ServerController {
     
     let webServer = GCDWebServer()
-    var imageDictionary = [Int:UIImage]()
+    var imageDictionary = [String:UIImage]()
     /*
         Starts, listens, uploads, downloads, stops
     */
@@ -31,24 +31,48 @@ public class ServerController {
            Upload image to a path localhost/image_key
 */
         let index = self.imageDictionary.count
-        self.imageDictionary[index] = image
+        self.imageDictionary[String(index)] = image
 //        self.runServer()
     }
     
-//    private func getImageAsNSData(index: Int)
+    private func getImageAsNSData(index: String) -> NSData {
+        return UIImagePNGRepresentation(self.imageDictionary[index]!)!
+    }
+    
+    // ex). removeSlashFromPath('/123') => '123'
+    private func removeSlashFromPath(path: String) -> String {
+        /*
+            http://stackoverflow.com/a/26270721
+        */
+        let pathWithoutSlash = path.characters.split{$0 == "/"}.map(String.init)
+        return pathWithoutSlash[0]
+    }
     
     
     private func respondToRequest(request: GCDWebServerRequest, completionBlock: GCDWebServerCompletionBlock) {
+        let fileKey = removeSlashFromPath(request.path)
         
-        GCDWebServerDataResponse(data: <#T##NSData!#>, contentType: <#T##String!#>)
-        let filePath = NSBundle.mainBundle().pathForResource("cat", ofType: "jpg")
-        let response = GCDWebServerFileResponse(file: filePath)
+        
+        let imageData = getImageAsNSData(fileKey)
+        let response = GCDWebServerDataResponse(data: imageData, contentType: "png")
+//        let filePath = NSBundle.mainBundle().pathForResource("cat", ofType: "jpg")
+//        let response = GCDWebServerFileResponse(file: filePath)
+        print(response.description)
+        print("path: ", request.path)
+        print("method: ",request.method)
+        print("URL: ", request.URL)
+        print("headers: ",request.headers)
+        print("query: ",request.query)
+//        print(request.contentType)
+//        print(request.)
+        
+        
         
         completionBlock(response)
     }
     
     init() {
-//        self.runServer()
+        self.runServer()
     }
     
     func runServer() {
