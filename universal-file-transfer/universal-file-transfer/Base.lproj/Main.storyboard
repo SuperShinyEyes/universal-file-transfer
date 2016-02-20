@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +17,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiY-te-fEj">
+                                <rect key="frame" x="20" y="570" width="560" height="30"/>
+                                <state key="normal" title="Pick an image"/>
+                                <connections>
+                                    <action selector="startServingFiles:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Du-Kv-7m7"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3MJ-oz-adU">
+                                <rect key="frame" x="20" y="70" width="560" height="450"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iiY-te-fEj" firstAttribute="top" secondItem="3MJ-oz-adU" secondAttribute="bottom" constant="50" id="8QJ-zA-UWh"/>
+                            <constraint firstItem="3MJ-oz-adU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FxB-sy-xsS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3MJ-oz-adU" secondAttribute="trailing" id="Tfo-Sb-e2J"/>
+                            <constraint firstItem="3MJ-oz-adU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="eKo-Lo-vTf"/>
+                            <constraint firstItem="iiY-te-fEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="isW-6E-fyM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iiY-te-fEj" secondAttribute="bottom" id="uaM-Fs-AOf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iiY-te-fEj" secondAttribute="trailing" id="zEB-HJ-irf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="3MJ-oz-adU" id="wH3-8l-wkR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

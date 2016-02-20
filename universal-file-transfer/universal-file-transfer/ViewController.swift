@@ -10,14 +10,17 @@ import UIKit
 import GCDWebServer
 //#import "GCDWebServer.h"
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let webServer = GCDWebServer()
+    let imagePicker = UIImagePickerController()
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initWebServer()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.imagePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,16 +28,28 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func initWebServer() {
-        
-        self.webServer.addDefaultHandlerForMethod("GET", requestClass: GCDWebServerRequest.self, processBlock: {request in
-            return GCDWebServerDataResponse(HTML:"<html><body><p>Hello World</p></body></html>")
-            
-        })
-        self.webServer.startWithPort(8080, bonjourName: "GCD Web Server")
-        
-        print("Visit \(self.webServer.serverURL) in your web browser")
-    }
 
+    @IBAction func startServingFiles(sender: AnyObject) {
+        self.imagePicker.allowsEditing = false
+        self.imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        self.imageView.contentMode = .ScaleAspectFit
+        self.imageView.image = image
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        GeneralHelper().getServer().startGivingImage(image)
+    }
+    
 }
 
