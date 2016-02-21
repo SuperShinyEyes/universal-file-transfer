@@ -48,7 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dismissViewControllerAnimated(true, completion: nil)
         
-        GeneralHelper().getServer().startGivingImage(image)
+        GeneralHelper.getServer().startGivingImage(image)
     }
     
 }

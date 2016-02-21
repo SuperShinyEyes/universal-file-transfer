@@ -36,13 +36,13 @@ public class ServerController {
     }
     
     private func getImageAsNSData(index: String) throws -> NSData {
-        let data = try GeneralHelper().getData(self.imageDictionary, key: index)
+        let data = try GeneralHelper.getData(self.imageDictionary, key: index)
 
         return UIImagePNGRepresentation(data)!
     }
     
     // ex). removeSlashFromPath('/123') => '123'
-    private func removeSlashFromPath(path: String) -> String {
+    private func removeSlashFromPath (path: String) -> String {
         /*
             http://stackoverflow.com/a/26270721
         */

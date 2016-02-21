@@ -11,12 +11,12 @@ import UIKit
 
 public struct GeneralHelper {
     
-    private func getAppDelegate() -> AppDelegate {
+    static private func getAppDelegate() -> AppDelegate {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return appDelegate
     }
     
-    public func getServer() -> ServerController {
+    static public func getServer() -> ServerController {
         return getAppDelegate().server
     }
     
@@ -24,7 +24,7 @@ public struct GeneralHelper {
         case NoKey
     }
     
-    public func getData(dict: [String:UIImage], key: String) throws -> UIImage {
+    static public func getData(dict: [String:UIImage], key: String) throws -> UIImage {
         guard let image = dict[key] else {
             throw KeyError.NoKey
         }
