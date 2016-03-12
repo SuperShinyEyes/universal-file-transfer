@@ -10,12 +10,6 @@ import Foundation
 import GCDWebServer
 
 
-/*
-From Android side
-port = 3003
-multicastGroup = "239.1.1.1"
-
-*/
 public class ServerController {
     
     let webServer = GCDWebServer()
