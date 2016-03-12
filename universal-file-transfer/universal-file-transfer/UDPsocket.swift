@@ -8,6 +8,7 @@
 
 import Foundation
 import CocoaAsyncSocket
+import EmitterKit
 
 //From Android side
 //port = 3003
@@ -23,6 +24,7 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
     static let port: UInt16 = 3003
     var socket: GCDAsyncUdpSocket!
     var whiteList = [String]()
+    let deviceFoundEvent = Event<Device>()
 
     private init(){
         // The order of socket communication initialization is IMPORTANT!!!
@@ -112,18 +114,40 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
     func appendToWhiteList(ipAddress: String) {
         
     }
+    
+    func emitDeviceCreated() {
+        
+    }
+    
+    func createNewDevice(ipAddress: String) {
+        let device = Device()
+        device.setDeviceName(ipAddress)
+        device.ip = ipAddress
+        NSLog(">>> Create new device: \(ipAddress)")
+        self.deviceFoundEvent.emit(device)
+    }
+    
+    func convertArrayToString(ipArray: [UInt8]) -> String{
+        let slice: Array<UInt8> = Array(ipArray[4..<8])
+        let sliceString = slice.map { (let number) -> String in
+            String(number)
+        }
+        return sliceString.joinWithSeparator(".")
+    }
 
     @objc func udpSocket(sock: GCDAsyncUdpSocket!, didReceiveData data: NSData!, fromAddress address: NSData!, withFilterContext filterContext: AnyObject!) {
         // Callback function when you receive data
 
         let dataArray = self.getByteArrayFromNSData(data)
-        let senderAddress = self.getByteArrayFromNSData(address)
+        let ipAddressAsArray = self.getByteArrayFromNSData(address)
 
-        NSLog(">>>Received \(data)\t \(senderAddress)")
+        NSLog(">>>Received \(data)\t \(ipAddressAsArray)")
         if let firstNumber = dataArray.first where dataArray.count == 1 {
             // Respond only if the tag is 1
             if (firstNumber == 1) {
                 self.sendData(0x00, dataLength: 1)
+                let ipAddressAsString = self.convertArrayToString(ipAddressAsArray)
+                self.createNewDevice(ipAddressAsString)
             }
         }
     }
@@ -135,8 +159,5 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
     }
 
 
-//    func test() {
-//        self.socket
-//    }
 
 }
