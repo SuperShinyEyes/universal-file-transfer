@@ -13,6 +13,7 @@ import EmitterKit
 //From Android side
 //port = 3003
 //multicastGroup = "239.1.1.1"
+
 /*
 Use CocoaAsyncSocket for multicasting in order to select other devices.
 
@@ -33,7 +34,6 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
         self.startBindToPort()
         self.startJoinMulticastGroup()
         self.startBeginReceiving()
-//        self.startEnableBroadcast()
     }
 
     func startJoinMulticastGroup(){
@@ -144,11 +144,13 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
         NSLog(">>>Received \(data)\t \(ipAddressAsArray)")
         if let firstNumber = dataArray.first where dataArray.count == 1 {
             // Respond only if the tag is 1
-            if (firstNumber == 1) {
-                self.sendData(0x00, dataLength: 1)
-            } else if (firstNumber == 0) {
+            if (firstNumber == 1 || firstNumber == 0) {
                 let ipAddressAsString = self.convertArrayToString(ipAddressAsArray)
                 self.createNewDevice(ipAddressAsString)
+            }
+            
+            if (firstNumber == 1) {
+                self.sendData(0x00, dataLength: 1)
             }
         }
     }
