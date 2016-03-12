@@ -10,16 +10,37 @@ import UIKit
 import GCDWebServer
 //#import "GCDWebServer.h"
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource {
+    
+    var deviceArray:[Device] = []
+    let operationQueue = NSOperationQueue.mainQueue()
     
     let imagePicker = UIImagePickerController()
+    @IBOutlet var deviceTableView: UITableView!
 
     @IBOutlet weak var imageView: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    override func viewDidAppear(animated: Bool) {
+            super.viewDidAppear(animated)
         
+        
+       
+                   // self.addItem("asDasdasf2")
+
+    }
+    
+    override func viewDidLoad() {
+        
+        
+        super.viewDidLoad()
+        self.operationQueue.maxConcurrentOperationCount = 1
+        // Do any additional setup after loading the view, typically from a nib.
+        self.deviceTableView.delegate = self
+        self.deviceTableView.dataSource = self
+
+
         self.imagePicker.delegate = self
     }
 
@@ -27,8 +48,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
     @IBAction func startServingFiles(sender: AnyObject) {
         self.imagePicker.allowsEditing = false
         self.imagePicker.sourceType = .PhotoLibrary
@@ -50,6 +75,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         GeneralHelper.getServer().startGivingImage(image)
     }
+    
+    func addItem(device: Device){
+        self.operationQueue.addOperationWithBlock { () -> Void in
+            let isAlreadyIn = self.deviceArray.contains({ (let deviceInArray) -> Bool in
+
+                return device.getName() == deviceInArray.getName()
+            })
+            if(!isAlreadyIn){
+                self.deviceArray.append(device)
+                self.deviceTableView.reloadData()
+            }
+        }
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return deviceArray.count
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
+
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
+        
+        UITableViewCell {
+            let cell =  self.deviceTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DeviceCell
+            
+            cell.deviceName.text = deviceArray[indexPath.row].getName()
+            return cell
+    }
+    
+
     
 }
 
