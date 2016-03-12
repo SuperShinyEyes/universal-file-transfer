@@ -8,11 +8,8 @@
 
 import Foundation
 
-class Device:NSObject {
-    override init(){
-        super.init()
-    }
-    
+class Device {
+ 
     var name: String?
     var ip: String?
     
@@ -23,7 +20,7 @@ class Device:NSObject {
     func getName() -> String{
         return self.name!
     }
-    func get() -> String{
+    func getIp() -> String{
         return self.ip!
     }
 }
