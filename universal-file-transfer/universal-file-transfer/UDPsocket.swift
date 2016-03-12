@@ -146,6 +146,7 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
             // Respond only if the tag is 1
             if (firstNumber == 1) {
                 self.sendData(0x00, dataLength: 1)
+            } else if (firstNumber == 0) {
                 let ipAddressAsString = self.convertArrayToString(ipAddressAsArray)
                 self.createNewDevice(ipAddressAsString)
             }
