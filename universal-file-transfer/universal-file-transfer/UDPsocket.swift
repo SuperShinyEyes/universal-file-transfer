@@ -29,7 +29,8 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
 
     private init(){
         // The order of socket communication initialization is IMPORTANT!!!
-
+        // What is bind() and connect()? Read:
+        // http://stackoverflow.com/questions/27014955/socket-connect-vs-bind
         self.socket = GCDAsyncUdpSocket(delegate: self, delegateQueue: dispatch_get_main_queue())
         self.startBindToPort()
         self.startJoinMulticastGroup()
