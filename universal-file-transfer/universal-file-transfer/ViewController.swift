@@ -8,13 +8,13 @@
 
 import UIKit
 import GCDWebServer
-//#import "GCDWebServer.h"
+import EmitterKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource {
     
     var deviceArray:[Device] = []
     let operationQueue = NSOperationQueue.mainQueue()
-    
+    var deviceListener: Listener?
     let imagePicker = UIImagePickerController()
     @IBOutlet var deviceTableView: UITableView!
 
