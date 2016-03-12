@@ -41,6 +41,9 @@
                                         <state key="normal" title="Search for devices">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="refreshList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZWH-dj-50j"/>
+                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JTd-uS-zuv">
                                         <rect key="frame" x="0.0" y="31" width="550" height="439"/>

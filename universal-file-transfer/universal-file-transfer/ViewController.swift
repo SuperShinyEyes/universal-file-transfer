@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let operationQueue = NSOperationQueue.mainQueue()
     var deviceListener: Listener?
     let imagePicker = UIImagePickerController()
+    var eventListener:Listener?
     @IBOutlet var deviceTableView: UITableView!
 
     @IBOutlet weak var imageView: UIImageView!
@@ -25,16 +26,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidAppear(animated: Bool) {
             super.viewDidAppear(animated)
         
+            
+            self.getSocket().startLookingForDevices()
         
-       
-                   // self.addItem("asDasdasf2")
-
     }
     
     override func viewDidLoad() {
         
         
         super.viewDidLoad()
+        
+        self.deviceListener = self.getSocket().deviceFoundEvent.on { (let device) -> Void in
+            self.addItem(device)
+        }
+        
         self.operationQueue.maxConcurrentOperationCount = 1
         // Do any additional setup after loading the view, typically from a nib.
         self.deviceTableView.delegate = self
@@ -43,7 +48,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         self.imagePicker.delegate = self
     }
+    
+    @IBAction func refreshList(sender: AnyObject) {
+        self.refreshDeviceList()
+    }
+    func refreshDeviceList() {
+        self.operationQueue.addOperationWithBlock { () -> Void in
+            self.deviceArray.removeAll()
+            self.deviceTableView.reloadData()
+            self.getSocket().startLookingForDevices()
 
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,6 +78,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    func getSocket() -> UDPsocket {
+        return UDPsocket.sharedInstance
+    }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
