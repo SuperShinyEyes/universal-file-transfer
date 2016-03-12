@@ -9,7 +9,10 @@ target 'universal-file-transfer' do
  	use_frameworks!
  	pod 'EmitterKit'
     pod "GCDWebServer/WebUploader", "~> 3.0"
+    pod 'CocoaAsyncSocket'
 end
+
+
 
 #Pods linked to universal-file-transferTests app
 # target 'universal-file-transferTests' do
