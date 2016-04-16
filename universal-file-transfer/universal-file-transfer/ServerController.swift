@@ -8,8 +8,7 @@
 
 import Foundation
 import GCDWebServer
-
-
+import Alamofire
 public class ServerController {
     
     let webServer = GCDWebServer()
@@ -27,12 +26,13 @@ public class ServerController {
     }
     
     
-    public func startGivingImage(image:UIImage) {
+    public func startGivingImage(image:UIImage) -> String{
         /*
            Upload image to a path localhost/image_key
 */
-        let index = self.imageDictionary.count
-        self.imageDictionary[String(index)] = image
+        let index:String = String(self.imageDictionary.count) + ".png"
+        self.imageDictionary[index] = image
+        return index
 //        self.runServer()
     }
     
@@ -48,7 +48,13 @@ public class ServerController {
             http://stackoverflow.com/a/26270721
         */
         let pathWithoutSlash = path.characters.split{$0 == "/"}.map(String.init)
+        if(!pathWithoutSlash.isEmpty){
         return pathWithoutSlash[0]
+        }
+        else {
+            return ""
+
+        }
     }
     
     
@@ -58,7 +64,7 @@ public class ServerController {
         let imageData: NSData?
         do {
             imageData = try getImageAsNSData(fileKey)
-            response = GCDWebServerDataResponse(data: imageData, contentType: "png")
+            response = GCDWebServerDataResponse(data: imageData, contentType: "image/png")
         } catch  {
             response = GCDWebServerErrorResponse(HTML: "The index doesn't exist")
 //            GCDWebServerErrorResponse.init

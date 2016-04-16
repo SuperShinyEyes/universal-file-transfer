@@ -21,7 +21,7 @@ Use CocoaAsyncSocket for multicasting in order to select other devices.
 class UDPsocket:GCDAsyncUdpSocketDelegate {
 
     static let sharedInstance = UDPsocket()
-    static let ipAddress = "239.1.1.1"
+    static let ipAddress = "224.0.0.251"
     static let port: UInt16 = 3003
     var socket: GCDAsyncUdpSocket!
     var whiteList = [String]()
@@ -149,7 +149,6 @@ class UDPsocket:GCDAsyncUdpSocketDelegate {
                 let ipAddressAsString = self.convertArrayToString(ipAddressAsArray)
                 self.createNewDevice(ipAddressAsString)
             }
-            
             if (firstNumber == 1) {
                 self.sendData(0x00, dataLength: 1)
             }

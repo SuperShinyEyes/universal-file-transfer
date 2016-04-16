@@ -1,3 +1,4 @@
+
  source 'https://github.com/CocoaPods/Specs.git'
  use_frameworks!
  platform :ios, '8.3'
@@ -8,8 +9,12 @@ link_with 'universal-file-transfer'
 target 'universal-file-transfer' do
  	use_frameworks!
  	pod 'EmitterKit'
+
     pod "GCDWebServer/WebUploader", "~> 3.0"
     pod 'CocoaAsyncSocket'
+	pod 'Alamofire', '~> 3.3'
+	    pod 'AlamofireImage', '~> 2.3.1'
+
 end
 
 

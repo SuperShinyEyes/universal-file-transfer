@@ -16,13 +16,16 @@ class DeviceTableViewContoller: UIViewController, UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         //datasource = self
     }
-
+    
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return devices.count
     }
+    
+ 
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50

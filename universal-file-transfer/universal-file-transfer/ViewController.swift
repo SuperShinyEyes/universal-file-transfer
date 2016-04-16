@@ -9,7 +9,8 @@
 import UIKit
 import GCDWebServer
 import EmitterKit
-
+import Alamofire
+import AlamofireImage
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource {
     
     var deviceArray:[Device] = []
@@ -17,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var deviceListener: Listener?
     let imagePicker = UIImagePickerController()
     var eventListener:Listener?
+    var currentlySelectedImagePath:String?
     @IBOutlet var deviceTableView: UITableView!
 
     @IBOutlet weak var imageView: UIImageView!
@@ -28,6 +30,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
             
             self.getSocket().startLookingForDevices()
+        
+    }
+    
+    func putRequestToUrl(url:String){
+        
+        Alamofire.request(.PUT, url)
+            .responseData{ response in
+                switch response.result {
+                case .Success(let data):
+                    print(data)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+        
+        
         
     }
     
@@ -86,14 +104,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?){
         
         self.imageView.contentMode = .ScaleAspectFit
         self.imageView.image = image
         
         dismissViewControllerAnimated(true, completion: nil)
         
-        GeneralHelper.getServer().startGivingImage(image)
+        self.currentlySelectedImagePath = GeneralHelper.getServer().startGivingImage(image)
+        
     }
     
     func addItem(device: Device){
@@ -126,6 +145,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             cell.deviceName.text = deviceArray[indexPath.row].getName()
             return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("making request:")
+        if let currentlySelectedImagePath = currentlySelectedImagePath {
+            let requestString = "http://\(deviceArray[indexPath.row].getName()):8080/\(currentlySelectedImagePath)"
+            print(requestString)
+            putRequestToUrl(requestString)
+        }
+ 
     }
     
 

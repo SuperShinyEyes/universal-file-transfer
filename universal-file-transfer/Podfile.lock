@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (3.3.1)
+  - AlamofireImage (2.3.1):
+    - Alamofire (~> 3.2)
   - CocoaAsyncSocket (7.4.3):
     - CocoaAsyncSocket/All (= 7.4.3)
   - CocoaAsyncSocket/All (7.4.3):
@@ -14,11 +17,15 @@ PODS:
     - GCDWebServer/Core
 
 DEPENDENCIES:
+  - Alamofire (~> 3.3)
+  - AlamofireImage (~> 2.3.1)
   - CocoaAsyncSocket
   - EmitterKit
   - GCDWebServer/WebUploader (~> 3.0)
 
 SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AlamofireImage: e52336282757bbe1644f075d6cb85f19c891f939
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   EmitterKit: ac291d6fbf87237b2098ddbf71fff5c11e94208a
   GCDWebServer: 2a375ec42839a41d7187d04e5b688d32fa5c4cd5
