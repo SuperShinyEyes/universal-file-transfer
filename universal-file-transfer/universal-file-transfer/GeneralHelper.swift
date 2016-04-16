@@ -8,6 +8,9 @@
 
 import Foundation
 import UIKit
+import EmitterKit
+
+var GeneralHelperInstance = GeneralHelper()
 
 public struct GeneralHelper {
     
@@ -30,4 +33,28 @@ public struct GeneralHelper {
         }
         return image
     }
+    
+    var newItemFoundEvent = Event<DownloadableItem>()
+    
+    mutating func addNewItem(item: DownloadableItem) {
+        self.downloadableItems.append(item)
+        newItemFoundEvent.emit(item)
+    }
+    var downloadableItems = [DownloadableItem]()
+}
+
+public class DownloadableItem {
+    
+    let url: String
+    let path: String
+//    let device: String
+    var downloaded = false
+    
+//    init(url: String, path: String, device: String) {
+    init(url: String, path: String) {
+        self.url = url
+        self.path = path
+//        self.device = device
+    }
+    
 }

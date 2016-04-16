@@ -15,6 +15,7 @@
 		6F912A2F1C78753B00BB31FB /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F912A2E1C78753B00BB31FB /* ServerController.swift */; };
 		6F912A311C7878A200BB31FB /* GeneralHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F912A301C7878A200BB31FB /* GeneralHelper.swift */; };
 		6FAB48821C9423F700920900 /* UDPsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB48811C9423F700920900 /* UDPsocket.swift */; };
+		6FFDB1241CC2573400084C7F /* FilesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFDB1231CC2573400084C7F /* FilesController.swift */; };
 		B09299404A34FA29841CE98F /* Pods_universal_file_transfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C681EC64AD5C49919E7F3144 /* Pods_universal_file_transfer.framework */; };
 		B5EB77461C942A9A002C1E6B /* DeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB77451C942A9A002C1E6B /* DeviceTableViewController.swift */; };
 		B5EB77481C942EA7002C1E6B /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB77471C942EA7002C1E6B /* Device.swift */; };
@@ -35,6 +36,7 @@
 		6F912A301C7878A200BB31FB /* GeneralHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralHelper.swift; sourceTree = "<group>"; };
 		6F912A321C78AF1300BB31FB /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		6FAB48811C9423F700920900 /* UDPsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDPsocket.swift; sourceTree = "<group>"; };
+		6FFDB1231CC2573400084C7F /* FilesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesController.swift; sourceTree = "<group>"; };
 		B5EB77451C942A9A002C1E6B /* DeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableViewController.swift; sourceTree = "<group>"; };
 		B5EB77471C942EA7002C1E6B /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		B5EB77491C94592D002C1E6B /* DeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				6F912A291C786C0A00BB31FB /* TestFiles */,
 				6F912A171C7861B000BB31FB /* AppDelegate.swift */,
+				6FFDB1231CC2573400084C7F /* FilesController.swift */,
 				B5EB77491C94592D002C1E6B /* DeviceCell.swift */,
 				B5EB77471C942EA7002C1E6B /* Device.swift */,
 				6F912A191C7861B000BB31FB /* ViewController.swift */,
@@ -245,6 +248,7 @@
 				B5EB774A1C94592E002C1E6B /* DeviceCell.swift in Sources */,
 				6F912A181C7861B000BB31FB /* AppDelegate.swift in Sources */,
 				6F912A2F1C78753B00BB31FB /* ServerController.swift in Sources */,
+				6FFDB1241CC2573400084C7F /* FilesController.swift in Sources */,
 				B5EB77481C942EA7002C1E6B /* Device.swift in Sources */,
 				6FAB48821C9423F700920900 /* UDPsocket.swift in Sources */,
 			);
