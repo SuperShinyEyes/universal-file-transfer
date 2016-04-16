@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import GCDWebServer
 import EmitterKit
+import Alamofire
+import AlamofireImage
 
 class FilesController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate, UITableViewDataSource {
     
@@ -74,7 +76,15 @@ class FilesController: UIViewController, UIImagePickerControllerDelegate, UINavi
         return 50
     }
     
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = self.fileArray[indexPath.row]
+        print("url: \(item.url)")
+        let url = item.url.componentsSeparatedByString(":").first! + ":8080"
+        print(url)
+        let downloadUrl = "http://" + url + item.path
+        print(downloadUrl)
+        getRequestImage(downloadUrl)
+    }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         
         UITableViewCell {
@@ -84,7 +94,23 @@ class FilesController: UIViewController, UIImagePickerControllerDelegate, UINavi
             return cell
     }
     
-    
+    private func getRequestImage(url:String){
+        
+        Alamofire.request(.GET, url)
+            .responseImage{ response in
+                switch response.result {
+                case .Success(let data):
+                    print(data)
+                    UIImageWriteToSavedPhotosAlbum(data, nil, nil, nil)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+        
+        
+        
+    }
+
     
 }
 
