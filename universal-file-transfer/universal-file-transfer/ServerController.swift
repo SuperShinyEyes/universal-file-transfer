@@ -97,6 +97,11 @@ public class ServerController {
             self.respondToRequest(request, completionBlock: completionBlock)
         }
         
+        self.webServer.addDefaultHandlerForMethod("PUT", requestClass: GCDWebServerRequest.self) { (let request, let completionBlock) -> Void in
+            
+            self.respondToRequest(request, completionBlock: completionBlock)
+        }
+        
         self.webServer.startWithPort(8080, bonjourName: "GCD Web Server")
         
         print("Visit \(self.webServer.serverURL) in your web browser")

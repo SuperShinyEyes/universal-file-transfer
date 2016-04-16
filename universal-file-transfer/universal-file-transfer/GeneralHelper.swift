@@ -30,4 +30,5 @@ public struct GeneralHelper {
         }
         return image
     }
+    
 }
