@@ -14,6 +14,7 @@ public class ServerController {
     
     let webServer = GCDWebServer()
     var imageDictionary = [String:UIImage]()
+    var downloadablePaths = [DownloadableItem]()
     /*
         Starts, listens, uploads, downloads, stops
     */
@@ -98,8 +99,14 @@ public class ServerController {
         }
         
         self.webServer.addDefaultHandlerForMethod("PUT", requestClass: GCDWebServerRequest.self) { (let request, let completionBlock) -> Void in
+            NSLog(request.path)
+            NSLog(request.remoteAddressString)
+            let path = request.path
+            let url = request.remoteAddressString
+            let item = DownloadableItem(url: url, path: path)
+            GeneralHelperInstance.addNewItem(item)
             
-            self.respondToRequest(request, completionBlock: completionBlock)
+            completionBlock(GCDWebServerDataResponse(HTML: "Received PUT"))
         }
         
         self.webServer.startWithPort(8080, bonjourName: "GCD Web Server")

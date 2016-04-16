@@ -82,10 +82,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="360-e6-knW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="0fH-HH-D5s"/>
                             <constraint firstItem="360-e6-knW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="1Ix-yv-f1N"/>
+                            <constraint firstItem="360-e6-knW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="OQ8-kF-9EP"/>
                             <constraint firstItem="iiY-te-fEj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PNs-wD-2CX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iiY-te-fEj" secondAttribute="bottom" id="Ugf-Hk-9tu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iiY-te-fEj" secondAttribute="bottom" id="Vcd-lJ-Q0C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="360-e6-knW" secondAttribute="trailing" constant="5" id="faa-Am-fXq"/>
                             <constraint firstItem="3MJ-oz-adU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="jGm-fY-G61"/>
                             <constraint firstItem="iiY-te-fEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nAg-Bm-hud"/>
@@ -107,7 +107,7 @@
         <!--Files-->
         <scene sceneID="TkA-3Y-a1o">
             <objects>
-                <viewController id="YIA-uh-8Sq" sceneMemberID="viewController">
+                <viewController id="YIA-uh-8Sq" customClass="FilesController" customModule="universal_file_transfer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="da4-Eb-Fq9"/>
                         <viewControllerLayoutGuide type="bottom" id="f0P-RV-FrT"/>
@@ -115,9 +115,52 @@
                     <view key="view" contentMode="scaleToFill" id="rqJ-6C-3aF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="idj-7q-glH">
+                                <rect key="frame" x="20" y="20" width="560" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Pct-BK-rwq" customClass="DeviceCell" customModule="universal_file_transfer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pct-BK-rwq" id="K2I-To-YO4">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zB8-WG-8ye">
+                                                    <rect key="frame" x="11" y="11" width="528" height="21"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.059454623769999999" blue="0.25822256789999998" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.62369791669999997" blue="0.32675703509999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zB8-WG-8ye" secondAttribute="bottom" constant="3" id="8cM-F5-G89"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zB8-WG-8ye" secondAttribute="trailing" constant="3" id="Dcs-c8-zpr"/>
+                                                <constraint firstItem="zB8-WG-8ye" firstAttribute="leading" secondItem="K2I-To-YO4" secondAttribute="leadingMargin" constant="3" id="K1X-Nm-HJB"/>
+                                                <constraint firstItem="zB8-WG-8ye" firstAttribute="top" secondItem="K2I-To-YO4" secondAttribute="topMargin" constant="3" id="YfZ-qe-SHs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deviceName" destination="zB8-WG-8ye" id="DMr-LD-bgz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="idj-7q-glH" firstAttribute="leading" secondItem="rqJ-6C-3aF" secondAttribute="leadingMargin" id="2p0-N4-2Vh"/>
+                            <constraint firstItem="f0P-RV-FrT" firstAttribute="top" secondItem="idj-7q-glH" secondAttribute="bottom" id="D96-ZV-Ybn"/>
+                            <constraint firstItem="idj-7q-glH" firstAttribute="top" secondItem="da4-Eb-Fq9" secondAttribute="bottom" id="LR7-7y-es6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="idj-7q-glH" secondAttribute="trailing" id="RMU-eS-Lp2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Files" image="Files" id="kGU-2m-Vzt"/>
+                    <connections>
+                        <outlet property="fileTableView" destination="idj-7q-glH" id="1Gm-zg-8gV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKx-Dz-wrU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,7 +186,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Devices" width="60" height="60"/>
-        <image name="Files" width="60" height="60"/>
+        <image name="Devices" width="25" height="25"/>
+        <image name="Files" width="25" height="25"/>
     </resources>
 </document>
