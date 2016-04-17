@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import EmitterKit
+import Alamofire
+import AlamofireImage
 
 var GeneralHelperInstance = GeneralHelper()
 
@@ -55,6 +57,32 @@ public class DownloadableItem {
         self.url = url
         self.path = path
 //        self.device = device
+    }
+    
+    var image: UIImage?
+    public func getRequestImage(complete: ((UIImage?) -> Void) ){
+        if let image = image {
+            complete(image)
+            return
+        }
+        
+        print("url: \(self.url)")
+        let downloadUrl = "http://" + self.url + self.path
+        print(downloadUrl)
+        
+        Alamofire.request(.GET, downloadUrl)
+            .responseImage{ response in
+                switch response.result {
+                case .Success(let data):
+                    print(data)
+                    self.image = data
+                    UIImageWriteToSavedPhotosAlbum(data, nil, nil, nil)
+                    complete(data)
+                case .Failure(let error):
+                    complete(nil)
+                    print("Request failed with error: \(error)")
+                }
+        }
     }
     
 }

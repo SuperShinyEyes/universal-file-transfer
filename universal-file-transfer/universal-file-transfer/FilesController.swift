@@ -78,12 +78,7 @@ class FilesController: UIViewController, UIImagePickerControllerDelegate, UINavi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let item = self.fileArray[indexPath.row]
-        print("url: \(item.url)")
-        let url = item.url.componentsSeparatedByString(":").first! + ":8080"
-        print(url)
-        let downloadUrl = "http://" + url + item.path
-        print(downloadUrl)
-        getRequestImage(downloadUrl)
+        self.performSegueWithIdentifier("toImageScreen", sender: item)
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->
         
@@ -94,23 +89,12 @@ class FilesController: UIViewController, UIImagePickerControllerDelegate, UINavi
             return cell
     }
     
-    private func getRequestImage(url:String){
-        
-        Alamofire.request(.GET, url)
-            .responseImage{ response in
-                switch response.result {
-                case .Success(let data):
-                    print(data)
-                    UIImageWriteToSavedPhotosAlbum(data, nil, nil, nil)
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-                }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let imageController = segue.destinationViewController as? ImageController, let item = sender as? DownloadableItem {
+            imageController.item = item
         }
-        
-        
-        
     }
-
     
 }
 

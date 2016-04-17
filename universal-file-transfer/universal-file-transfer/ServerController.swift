@@ -109,7 +109,9 @@ public class ServerController {
             NSLog(request.path)
             NSLog(request.remoteAddressString)
             let path = request.path
-            let url = request.remoteAddressString
+            let requestUrl = request.remoteAddressString
+            let url = requestUrl.componentsSeparatedByString(":").first! + ":8080"
+
             let item = DownloadableItem(url: url, path: path)
             GeneralHelperInstance.addNewItem(item)
             

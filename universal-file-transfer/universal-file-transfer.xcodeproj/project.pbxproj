@@ -20,6 +20,7 @@
 		B5EB77461C942A9A002C1E6B /* DeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB77451C942A9A002C1E6B /* DeviceTableViewController.swift */; };
 		B5EB77481C942EA7002C1E6B /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB77471C942EA7002C1E6B /* Device.swift */; };
 		B5EB774A1C94592E002C1E6B /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB77491C94592D002C1E6B /* DeviceCell.swift */; };
+		C9BD18B51CC28BE700E64D2C /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD18B41CC28BE700E64D2C /* ImageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		B5EB77471C942EA7002C1E6B /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		B5EB77491C94592D002C1E6B /* DeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		C681EC64AD5C49919E7F3144 /* Pods_universal_file_transfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_universal_file_transfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9BD18B41CC28BE700E64D2C /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				6F912A291C786C0A00BB31FB /* TestFiles */,
 				6F912A171C7861B000BB31FB /* AppDelegate.swift */,
+				C9BD18B41CC28BE700E64D2C /* ImageController.swift */,
 				6FFDB1231CC2573400084C7F /* FilesController.swift */,
 				B5EB77491C94592D002C1E6B /* DeviceCell.swift */,
 				B5EB77471C942EA7002C1E6B /* Device.swift */,
@@ -247,6 +250,7 @@
 				6F912A1A1C7861B000BB31FB /* ViewController.swift in Sources */,
 				B5EB774A1C94592E002C1E6B /* DeviceCell.swift in Sources */,
 				6F912A181C7861B000BB31FB /* AppDelegate.swift in Sources */,
+				C9BD18B51CC28BE700E64D2C /* ImageController.swift in Sources */,
 				6F912A2F1C78753B00BB31FB /* ServerController.swift in Sources */,
 				6FFDB1241CC2573400084C7F /* FilesController.swift in Sources */,
 				B5EB77481C942EA7002C1E6B /* Device.swift in Sources */,
@@ -368,7 +372,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "universal-file-transfer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mobile-mob.universal-file-transfer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.file-transfer.asd";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -383,7 +387,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "universal-file-transfer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mobile-mob.universal-file-transfer";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.file-transfer.asd";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
